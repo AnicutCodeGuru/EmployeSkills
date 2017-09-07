@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Employee List</div>
+  <div class="panel-body">
+    <table class="table table-bordered table-striped" [hidden]="empList.length<=0" >
+        <thead>
+            <th class="text-center" >Sl No.</th>
+            <th class="text-center" >First Name</th>
+            <th class="text-center" >Last Status</th>
+            <th class="text-center" >Phone Number</th>
+            <th class="text-center" >Email</th>
+            <th class="text-center" >Skills</th>
+            <th class="text-center" >Edit</th>
+            <th class="text-center" >Delete</th>
+        </thead>
+        <tbody>
+              <tr *ngFor="let emp of empList let i=index"   >
+                <td>{{i+1}}</td>
+                <td>{{emp.firstName}}</td>
+                <td>{{emp.lastName}}</td>
+                <td>{{emp.phoneNumber}}</td>
+                <td>{{emp.emailAddress}}</td>
+                <td>{{emp.matchedSkills}}</td>
+                <td class="text-center" >
+                    <input type="button" class="btn btn-success"  value="Edit" (click)="completeTask(task)"  />
+                </td>
+                <td class="text-center" >
+                    <input type="button" class="btn btn-danger"    value="Delete" (click)="deleteTask(task)"  />
+                </td>
+              </tr>
+        </tbody>
+    </table>
+      <div class="row" >
+          <div class="col-md-2" >
+              <input type="button" class="btn btn-primary" value="Add Employee"  (click)="createTask()" />
+          </div>
+      </div>  
+  </div>
+</div>

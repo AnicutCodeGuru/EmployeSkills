@@ -1,32 +1,26 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent }  from './app.component';
-
-import {Customer}  from "./Customers/customer";
-import {TodoTask}  from "./Todo/TodoTask";
-import {Product}  from "./Products/Products";
-import {Error}  from "./Common/Error";
-import {TodoService}  from "./Todo/srvc.Todo";
+import {EmpList}  from "./Employee/EmpList";
+import {EmployeeService}  from "./Employee/srvc.Employee";
+import {SkillService}  from "./Employee/srvc.Skills";
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import {CustomerDetl} from './Customers/CustomerDetl';
+
 
 import {RouterModule,Routes}  from "@angular/router";
 
 
 const routeMap :Routes=[
-  {path:"Customer", component :Customer},
-  {path:"Product", component :Product},
-  {path:"Todo", component :TodoTask},
-  {path:"**", component :Error}
+  {path:"empList", component :EmpList},
+  {path:"**", component :EmpList}
 ]
 
 @NgModule({
-  imports:      [HttpModule, BrowserModule, RouterModule.forRoot(routeMap),FormsModule,CustomerDetl],
-  declarations: [ AppComponent,Customer,Product,Error ,TodoTask ],
+  imports:      [HttpModule, BrowserModule, RouterModule.forRoot(routeMap),FormsModule],
+  declarations: [ AppComponent ,EmpList ],
   bootstrap:    [ AppComponent ],
-  providers:[TodoService]
+  providers:[EmployeeService,SkillService]
 })
 export class MainModule { }
 
